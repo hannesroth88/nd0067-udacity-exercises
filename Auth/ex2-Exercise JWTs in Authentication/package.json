@@ -1,0 +1,37 @@
+{
+  "name": "storefront_backend",
+  "version": "0.1.0",
+  "main": "server.ts",
+  "scripts": {
+    "watch": "tsc-watch --onSuccess \"node ./dist/server.js\"",
+    "test": "NODE_ENV=test db-migrate --env test up && jasmine && db-migrate db:drop test",
+    "start": "npm run prettier && tsc && node ./dist/server.js",
+    "prettier": "npx prettier --config .prettierrc --write ./src/**/*.ts",
+    "migrate-test": "db-migrate --env test up && db-migrate up",
+    "migrate-dev": "db-migrate --env dev up && db-migrate up"
+  },
+  "author": "Udacity",
+  "license": "ISC",
+  "dependencies": {
+    "@types/bcrypt": "^5.0.0",
+    "bcrypt": "^5.0.1",
+    "body-parser": "^1.19.0",
+    "db-migrate-pg": "^1.2.2",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.2",
+    "jsonwebtoken": "^8.5.1",
+    "pg": "^8.7.3"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.9",
+    "@types/jsonwebtoken": "^8.5.8",
+    "@types/node": "^17.0.6",
+    "@types/pg": "^8.6.4",
+    "nodemon": "^2.0.15",
+    "prettier": "2.5.1",
+    "tsc-watch": "^4.6.0",
+    "typescript": "^4.5.5"
+  },
+  "keywords": [],
+  "description": ""
+}
